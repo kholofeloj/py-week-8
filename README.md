@@ -155,38 +155,6 @@ plt.tight_layout()
 plt.show()
 ```
 
-### ✅ Percentage of Population Vaccinated
-
-```python
-latest_data['%_vaccinated'] = (latest_data['people_vaccinated'] / latest_data['population']) * 100
-vaccinated_data = latest_data[latest_data['location'].isin(countries)]
-
-plt.figure(figsize=(8, 5))
-plt.bar(vaccinated_data['location'], vaccinated_data['%_vaccinated'], color='green')
-plt.title('Percentage of Population Vaccinated')
-plt.ylabel('% Vaccinated')
-plt.xlabel('Country')
-plt.ylim(0, 100)
-plt.tight_layout()
-plt.show()
-```
-
-### 🥧 Optional: Pie Chart – Vaccinated vs. Unvaccinated
-
-```python
-kenya_data = vaccinated_data[vaccinated_data['location'] == 'Kenya'].iloc[0]
-vaccinated = kenya_data['people_vaccinated']
-unvaccinated = kenya_data['population'] - vaccinated
-
-labels = ['Vaccinated', 'Unvaccinated']
-sizes = [vaccinated, unvaccinated]
-
-plt.figure(figsize=(6, 6))
-plt.pie(sizes, labels=labels, autopct='%1.1f%%', colors=['green', 'red'], startangle=140)
-plt.title('Vaccinated vs Unvaccinated - Kenya')
-plt.axis('equal')
-plt.show()
-```
 
 ---
 
